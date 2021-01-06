@@ -1,0 +1,39 @@
+ALGORITHM First Method
+VAR
+    set1 : ARRAY_OF integer [ ];
+    set2 : ARRAY_OF integer [ ];
+    tab : ARRAY_OF integer [ ];
+    i,j,k,nbr,el,tailletab: integer;
+    sum:=0 : integer;
+BEGIN
+    set_instructions
+
+  tailletab = (set1.length + set2.length);
+
+ FOR i FROM 0 TO set1.length STEP 1  DO
+ tab[i] := set1[i];
+ FOR i FROM set1.length TO set2.length STEP 1  DO
+ tab[i] := set2[i];
+
+ for (i = 0; i < tailletab; i++) {
+      for (j = i + 1; j < tailletab;) {
+         if (tab[j] == tab[i]) {
+            for (k = j; k < tailletab; k++) {
+               tab[k] = tab[k + 1];
+            }
+            tailletab--;
+         } else
+            j++;
+      }
+   }
+
+    END_FOR
+    END_FOR
+    END_FOR
+
+FOR i FROM 0 TO tab.length STEP 1  DO
+        IF (count==1) THEN
+        sum=sum+el
+        END_IF
+    END_FOR
+END
